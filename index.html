@@ -49,6 +49,7 @@ body{font-family:'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif;backgroun
 .card:hover::before{opacity:1}
 .card.c1::before{background:linear-gradient(90deg,var(--accent),transparent)}
 .card.c2::before{background:linear-gradient(90deg,var(--accent2),transparent)}
+.card.c3::before{background:linear-gradient(90deg,var(--accent3),transparent)}
 .card-inner{padding:18px 20px}
 .card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
 .card-top h3{font-size:16px;font-weight:700;color:var(--text);line-height:1.4}
@@ -84,8 +85,8 @@ body{font-family:'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif;backgroun
     <h1>BI 看板中心</h1>
     <p class="sub">下沉市场数据看板统一入口</p>
     <div class="stats">
-      <div class="stat"><div class="num">2</div><div class="label">看板总数</div></div>
-      <div class="stat"><div class="num green">2</div><div class="label">数据类别</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">看板总数</div></div>
+      <div class="stat"><div class="num green">3</div><div class="label">数据类别</div></div>
       <div class="stat"><div class="num yellow" id="update-stat">--</div><div class="label">最近更新</div></div>
     </div>
   </div>
@@ -113,11 +114,20 @@ body{font-family:'PingFang SC','Microsoft YaHei','Segoe UI',sans-serif;backgroun
         </div>
       </div>
 
-      <div class="card c2" data-keywords="配送考核 周会 合作商 城市 2026" onclick="location.href='https://gitsick.github.io/rider-data/delivery-assessment-dashboard.html'">
+      <div class="card c2" data-keywords="配送考核 周会 合作商 城市 2026 9月" onclick="location.href='https://gitsick.github.io/rider-data/delivery-assessment-dashboard.html'">
         <div class="card-inner">
           <div class="card-top"><h3>2026年9月配送考核看板</h3><span class="tag green">考核</span></div>
           <p class="desc">下沉市场合作商周会同步看板，含城市维度配送考核数据</p>
           <div class="meta"><span><i class="dot-s"></i><span id="d2-time">加载中</span></span><span id="d2-size">--</span></div>
+          <div class="arrow">查看 →</div>
+        </div>
+      </div>
+
+      <div class="card c1" data-keywords="配送考核 周会 合作商 城市 2026 10月 10月" onclick="location.href='https://gitsick.github.io/rider-data/delivery-assessment-dashboard-oct.html'">
+        <div class="card-inner">
+          <div class="card-top"><h3>2026年10月配送考核看板</h3><span class="tag green">考核</span></div>
+          <p class="desc">10月配送考核方案框架，含3种画像类型、12个高峰日、体验推完剔除企客订单等新变化</p>
+          <div class="meta"><span><i class="dot-s"></i><span id="d3-time">加载中</span></span><span id="d3-size">--</span></div>
           <div class="arrow">查看 →</div>
         </div>
       </div>
@@ -181,6 +191,7 @@ function fetchMeta(url,timeId,sizeId){
 
 fetchMeta('https://gitsick.github.io/rider-data/rider_dashboard.html','d1-time','d1-size');
 fetchMeta('https://gitsick.github.io/rider-data/delivery-assessment-dashboard.html','d2-time','d2-size');
+fetchMeta('https://gitsick.github.io/rider-data/delivery-assessment-dashboard-oct.html','d3-time','d3-size');
 
 // 键盘快捷键: / 聚焦搜索
 document.addEventListener('keydown',e=>{
