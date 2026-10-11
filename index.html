@@ -163,6 +163,28 @@ body{font-family:"MiSans","HarmonyOS Sans SC","PingFang SC","Microsoft YaHei",sy
 @media(max-width:980px){.top-nav .bar-score{display:none!important}}
 @media (max-width:640px){.top-nav{padding:0 12px!important;font-size:12px;gap:8px!important;height:36px!important}.top-nav .nav-switch{padding:2px 9px!important;font-size:11px}}
 html.embed .top-nav{display:none}
+/* [TK-NAV-WIDTH] 导航与看板同宽：内容区以 .wrap 限宽 1440 居中的页面（骑手主看板/概览/协议），顶导航同步限宽居中，宽屏不再"导航通栏、看板居中"错位 */
+body:has(.wrap) .top-nav{max-width:1440px;margin-left:auto!important;margin-right:auto!important}
+/* [TK-NAV-FIT] 导航防溢出：分级紧凑（间距/按钮/城市胶囊逐级收紧），窄屏下切换按钮不再被横向滚动藏住 */
+@media(max-width:1500px){
+  .top-nav{gap:8px!important}
+  .top-nav .nav-switch{padding:2px 9px!important;font-size:10.5px!important}
+  .top-nav .nav-cities{gap:4px!important}
+  .top-nav .nav-cities .city-tab{padding:4px 10px!important;font-size:11px!important}
+}
+@media(max-width:1180px){
+  .top-nav .bar-score{display:none!important}
+}
+@media(max-width:980px){
+  .top-nav .nav-cities .city-tab{padding:3px 7px!important;font-size:10.5px!important;min-width:34px!important}
+}
+@media(max-width:700px){
+  .top-nav{gap:4px!important;padding:0 6px!important}
+  .top-nav .nav-sep{display:none!important}
+  .top-nav .nav-switch{padding:2px 6px!important;font-size:10px!important}
+  .top-nav .nav-cities{gap:3px!important}
+  .top-nav .nav-cities .city-tab{padding:3px 5px!important}
+}
 
 /* ---------- [3] 页面对齐层（body.theme-align 时生效） ---------- */
 body.theme-align{font-family:var(--tk-font)!important;background:radial-gradient(1200px 420px at 12% -6%,rgba(255,195,0,.08),transparent 60%),radial-gradient(1000px 460px at 92% -10%,rgba(59,111,245,.07),transparent 55%),var(--tk-bg)!important}
@@ -182,17 +204,44 @@ body.theme-align th a,body.theme-align th span{color:#fff!important}
     <h1>BI 看板中心</h1>
     <p class="sub">下沉市场数据看板统一入口 · 骑手解约 + 履约考核</p>
     <div class="stats">
-      <div class="stat"><div class="num" id="cnt-total">3</div><div class="label">看板总数</div></div>
+      <div class="stat"><div class="num" id="cnt-total">6</div><div class="label">看板总数</div></div>
       <div class="stat"><div class="num" id="cnt-cat">2</div><div class="label">数据类别</div></div>
       <div class="stat"><div class="num yellow" id="update-stat">--</div><div class="label">最近更新</div></div>
     </div>
+    <div class="card c-rider" data-cat="rider" data-keywords="骑手解约 概览 汇总 总览 趋势" tabindex="0" role="link" onclick="location.href='https://gitsick.github.io/rider-data/rider_overview.html'" onkeydown="if(event.key==='Enter')location.href='https://gitsick.github.io/rider-data/rider_overview.html'">
+      <div class="card-inner">
+        <div class="card-top"><h3>骑手解约概览</h3><span class="tag yellow">汇总</span></div>
+        <p class="desc">骑手解约全局概览视图：总量、趋势与关键结论汇总</p>
+        <div class="meta"><span><i class="dot-s"></i>随流水线自动刷新</span></div>
+        <div class="arrow">进入看板 →</div>
+      </div>
+    </div>
+
+    <div class="card c-rider" data-cat="rider" data-keywords="骑手解约 分享 二维码 转发 对外" tabindex="0" role="link" onclick="location.href='https://gitsick.github.io/rider-data/rider_share.html'" onkeydown="if(event.key==='Enter')location.href='https://gitsick.github.io/rider-data/rider_share.html'">
+      <div class="card-inner">
+        <div class="card-top"><h3>骑手解约分享页</h3><span class="tag yellow">分享</span></div>
+        <p class="desc">对外分享版骑手解约数据页，支持扫码转发</p>
+        <div class="meta"><span><i class="dot-s"></i>随流水线自动刷新</span></div>
+        <div class="arrow">进入看板 →</div>
+      </div>
+    </div>
+
+    <div class="card c-rider" data-cat="rider" data-keywords="访问日志 记录 查阅 audit" tabindex="0" role="link" onclick="location.href='https://gitsick.github.io/rider-data/access_log.html'" onkeydown="if(event.key==='Enter')location.href='https://gitsick.github.io/rider-data/access_log.html'">
+      <div class="card-inner">
+        <div class="card-top"><h3>看板访问日志</h3><span class="tag yellow">日志</span></div>
+        <p class="desc">各看板访问记录汇总，自动采集</p>
+        <div class="meta"><span><i class="dot-s"></i>随流水线自动刷新</span></div>
+        <div class="arrow">进入看板 →</div>
+      </div>
+    </div>
+
   </div>
 </div>
 
 <div class="toolbar">
   <div class="tabs" id="tabs">
     <button class="tab cur" data-cat="all" type="button">全部 <i id="n-all">3</i></button>
-    <button class="tab" data-cat="rider" type="button">骑手解约 <i id="n-rider">1</i></button>
+    <button class="tab" data-cat="rider" type="button">骑手解约 <i id="n-rider">4</i></button>
     <button class="tab" data-cat="kaohe" type="button">履约考核 <i id="n-kaohe">2</i></button>
   </div>
   <div class="search">
@@ -203,7 +252,7 @@ body.theme-align th a,body.theme-align th span{color:#fff!important}
 </div>
 
 <div class="container">
-  <div class="section-head"><h2>数据看板</h2><div class="line"></div><span class="cnt" id="visible-cnt">共 3 个</span></div>
+  <div class="section-head"><h2>数据看板</h2><div class="line"></div><span class="cnt" id="visible-cnt">共 6 个</span></div>
   <div class="grid" id="grid">
 
     <div class="card c-rider" data-cat="rider" data-keywords="骑手解约 数据看板 查询 华东 华南 筛选 协议" tabindex="0" role="link" onclick="location.href='https://gitsick.github.io/rider-data/rider_dashboard.html'" onkeydown="if(event.key==='Enter')location.href='https://gitsick.github.io/rider-data/rider_dashboard.html'">
