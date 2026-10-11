@@ -212,7 +212,7 @@ body.theme-align th a,body.theme-align th span{color:#fff!important}
       <div class="card-inner">
         <div class="card-top"><h3>骑手解约概览</h3><span class="tag yellow">汇总</span></div>
         <p class="desc">骑手解约全局概览视图：总量、趋势与关键结论汇总</p>
-        <div class="meta"><span><i class="dot-s"></i>随流水线自动刷新</span></div>
+        <div class="meta"><span><i class="dot-s"></i><span id="d4-time">加载中</span></span><span id="d4-size">--</span></div>
         <div class="arrow">进入看板 →</div>
       </div>
     </div>
@@ -221,7 +221,7 @@ body.theme-align th a,body.theme-align th span{color:#fff!important}
       <div class="card-inner">
         <div class="card-top"><h3>骑手解约分享页</h3><span class="tag yellow">分享</span></div>
         <p class="desc">对外分享版骑手解约数据页，支持扫码转发</p>
-        <div class="meta"><span><i class="dot-s"></i>随流水线自动刷新</span></div>
+        <div class="meta"><span><i class="dot-s"></i><span id="d5-time">加载中</span></span><span id="d5-size">--</span></div>
         <div class="arrow">进入看板 →</div>
       </div>
     </div>
@@ -230,7 +230,7 @@ body.theme-align th a,body.theme-align th span{color:#fff!important}
       <div class="card-inner">
         <div class="card-top"><h3>看板访问日志</h3><span class="tag yellow">日志</span></div>
         <p class="desc">各看板访问记录汇总，自动采集</p>
-        <div class="meta"><span><i class="dot-s"></i>随流水线自动刷新</span></div>
+        <div class="meta"><span><i class="dot-s"></i><span id="d6-time">加载中</span></span><span id="d6-size">--</span></div>
         <div class="arrow">进入看板 →</div>
       </div>
     </div>
@@ -345,6 +345,9 @@ function fetchMeta(url,timeId,sizeId){
 fetchMeta('https://gitsick.github.io/rider-data/rider_dashboard.html','d1-time','d1-size');
 fetchMeta('https://gitsick.github.io/rider-data/delivery-assessment-dashboard.html','d2-time','d2-size');
 fetchMeta('https://gitsick.github.io/rider-data/delivery-assessment-dashboard-oct.html','d3-time','d3-size');
+fetchMeta('https://gitsick.github.io/rider-data/rider_overview.html','d4-time','d4-size');
+fetchMeta('https://gitsick.github.io/rider-data/rider_share.html','d5-time','d5-size');
+fetchMeta('https://gitsick.github.io/rider-data/access_log.html','d6-time','d6-size');
 
 // ===== 快捷键：/ 聚焦搜索，Esc 清空 =====
 document.addEventListener('keydown',e=>{
